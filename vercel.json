@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "name": "stem-project",
+  "builds": [
+    { "src": "stem-project/package.json", "use": "@vercel/static-build", "config": { "distDir": "build" } },
+    { "src": "api/*.js", "use": "@vercel/node" }
+  ],
+  "routes": [
+    { "src": "/api/(.*)", "dest": "/api/$1" },
+    { "src": "/(.*)", "dest": "stem-project/build/$1" }
+  ]
+}

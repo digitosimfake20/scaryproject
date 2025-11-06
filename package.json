@@ -1,7 +1,22 @@
 {
+  "name": "stem-project-monorepo-root",
+  "private": true,
   "dependencies": {
     "express": "^5.1.0",
     "framer-motion": "^12.23.24",
-    "lucide-react": "^0.552.0"
+    "lucide-react": "^0.552.0",
+    "openai": "^4.76.0",
+    "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  },
+  "scripts": {
+    "dev": "concurrently \"npm:dev:frontend\" \"npm:dev:backend\"",
+    "dev:frontend": "cd stem-project && npm start",
+    "dev:backend": "node stem-project/backend/server.js",
+    "build": "cd stem-project && npm run build",
+    "start": "node stem-project/backend/server.js",
+    "vercel-build": "cd stem-project && npm run build"
   }
 }
